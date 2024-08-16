@@ -13,7 +13,14 @@
 				"amiralizadeh9480.laravel-extra-intellisense",
 				"ryannaddy.laravel-artisan",
 				"onecentlin.laravel5-snippets",
-				"onecentlin.laravel-blade"
+				"onecentlin.laravel-blade",
+				"EditorConfig.EditorConfig",
+				"GitHub.vscode-pull-request-github",
+				"eamodio.gitlens",
+				"xdebug.php-debug",
+				"bmewburn.vscode-intelephense-client",
+				"Vue.volar",
+				"DotJoshJohnson.xml"
 			],
 			"settings": {}
 		}
