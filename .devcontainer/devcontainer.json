@@ -27,6 +27,9 @@
                 "[php]": {
                     "editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
                 },
+                "[vue]": {
+                    "editor.defaultFormatter": "esbenp.prettier-vscode"
+                },
                 "LaravelExtraIntellisense.basePathForCode": "/var/www/html",
                 "LaravelExtraIntellisense.phpCommand": "php -r \"{code}\""
             }
