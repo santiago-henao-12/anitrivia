@@ -1,33 +1,40 @@
 // https://aka.ms/devcontainer.json
 {
-	"name": "Existing Docker Compose (Extend)",
-	"dockerComposeFile": [
-		"../docker-compose.yml"
-	],
-	"service": "laravel.test",
-	"workspaceFolder": "/var/www/html",
-	"customizations": {
-		"vscode": {
-			"extensions": [
-				"mikestead.dotenv",
-				"amiralizadeh9480.laravel-extra-intellisense",
-				"ryannaddy.laravel-artisan",
-				"onecentlin.laravel5-snippets",
-				"onecentlin.laravel-blade",
-				"EditorConfig.EditorConfig",
-				"GitHub.vscode-pull-request-github",
-				"eamodio.gitlens",
-				"xdebug.php-debug",
-				"bmewburn.vscode-intelephense-client",
-				"Vue.volar",
-				"DotJoshJohnson.xml"
-			],
-			"settings": {}
-		}
-	},
-	"remoteUser": "sail",
-	"postCreateCommand": "chown -R 1000:1000 /var/www/html 2>/dev/null || true"
-	// "forwardPorts": [],
-	// "runServices": [],
-	// "shutdownAction": "none",
+    "name": "Existing Docker Compose (Extend)",
+    "dockerComposeFile": ["../docker-compose.yml"],
+    "service": "laravel.test",
+    "workspaceFolder": "/var/www/html",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "mikestead.dotenv",
+                "amiralizadeh9480.laravel-extra-intellisense",
+                "ryannaddy.laravel-artisan",
+                "onecentlin.laravel5-snippets",
+                "onecentlin.laravel-blade",
+                "EditorConfig.EditorConfig",
+                "GitHub.vscode-pull-request-github",
+                "eamodio.gitlens",
+                "xdebug.php-debug",
+                "bmewburn.vscode-intelephense-client",
+                "Vue.volar",
+                "DotJoshJohnson.xml",
+                "bradlc.vscode-tailwindcss",
+                "esbenp.prettier-vscode"
+            ],
+            "settings": {
+                "editor.defaultFormatter": "esbenp.prettier-vscode",
+                "[php]": {
+                    "editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
+                },
+                "LaravelExtraIntellisense.basePathForCode": "/var/www/html",
+                "LaravelExtraIntellisense.phpCommand": "php -r \"{code}\""
+            }
+        }
+    },
+    "remoteUser": "sail",
+    "postCreateCommand": "chown -R 1000:1000 /var/www/html 2>/dev/null || true"
+    // "forwardPorts": [],
+    // "runServices": [],
+    // "shutdownAction": "none",
 }
