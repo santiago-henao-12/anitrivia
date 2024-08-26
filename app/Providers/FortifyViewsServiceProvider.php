@@ -21,12 +21,12 @@ class FortifyViewsServiceProvider extends ServiceProvider
 
     /**
      * Bootstrap services.
+     *
+     * Sets up the views necessary for Laravel Fortify to work
      */
     public function boot(): void
     {
-        /**
-         * Sets up Login and Register views
-         */
+        // Login and register
         Fortify::loginView(function () {
             return Inertia::render('Auth/Login', [
                 'canResetPassword' => Route::has('password.request'),
@@ -38,9 +38,7 @@ class FortifyViewsServiceProvider extends ServiceProvider
             return Inertia::render('Auth/Register');
         });
 
-        /**
-         * Sets up Recovery Views
-         */
+        // Password reset
         Fortify::requestPasswordResetLinkView(function () {
             return Inertia::render('Auth/ForgotPassword', [
                 'status' => session('status'),
@@ -51,6 +49,20 @@ class FortifyViewsServiceProvider extends ServiceProvider
             return Inertia::render('Auth/ResetPassword', [
                 'email' => $request->query('email'),
                 'token' => $request->token,
+            ]);
+        });
+
+        // Email verification
+        Fortify::verifyEmailView(function () {
+            return Inertia::render('Auth/VerifyEmail', [
+                'status' => session('status'),
+            ]);
+        });
+
+        // Password confirmation
+        Fortify::confirmPasswordView(function () {
+            return Inertia::render('Auth/ConfirmPassword', [
+                'status' => session('status'),
             ]);
         });
     }
