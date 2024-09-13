@@ -15,13 +15,12 @@
                 "EditorConfig.EditorConfig",
                 "GitHub.vscode-pull-request-github",
                 "eamodio.gitlens",
-                "xdebug.php-debug",
-                "bmewburn.vscode-intelephense-client",
                 "Vue.volar",
                 "DotJoshJohnson.xml",
                 "bradlc.vscode-tailwindcss",
                 "esbenp.prettier-vscode",
-                "hollowtree.vue-snippets"
+                "hollowtree.vue-snippets",
+                "DEVSENSE.phptools-vscode"
             ],
             "settings": {
                 "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -31,7 +30,7 @@
                 "LaravelExtraIntellisense.basePathForCode": "/var/www/html",
                 "LaravelExtraIntellisense.phpCommand": "php -r \"{code}\"",
                 "[php]": {
-                    "editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
+                    "editor.defaultFormatter": "DEVSENSE.phptools-vscode"
                 },
                 "[vue]": {
                     "editor.defaultFormatter": "esbenp.prettier-vscode"
