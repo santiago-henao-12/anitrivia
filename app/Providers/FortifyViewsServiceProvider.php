@@ -3,7 +3,6 @@
 namespace App\Providers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -36,6 +35,13 @@ class FortifyViewsServiceProvider extends ServiceProvider
 
         Fortify::registerView(function () {
             return Inertia::render('Auth/Register');
+        });
+
+        // Two factor authentication
+        Fortify::twoFactorChallengeView(function () {
+            return Inertia::render('Auth/TwoFactorChallengeView', [
+                'status' => session('status'),
+            ]);
         });
 
         // Password reset

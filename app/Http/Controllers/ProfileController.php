@@ -20,6 +20,7 @@ class ProfileController extends Controller
     {
         return Inertia::render('Profile/Edit', [
             'mustVerifyEmail' => $request->user() instanceof MustVerifyEmail,
+            'confirmedPassword' => (time() - $request->session()->get('auth.password_confirmed_at', 0)) < $request->input('seconds', config('auth.password_timeout', 900)),
             'status' => session('status'),
         ]);
     }
