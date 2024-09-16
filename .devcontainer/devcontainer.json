@@ -19,8 +19,10 @@
                 "DotJoshJohnson.xml",
                 "bradlc.vscode-tailwindcss",
                 "esbenp.prettier-vscode",
-                "hollowtree.vue-snippets",
-                "DEVSENSE.phptools-vscode"
+                "DEVSENSE.phptools-vscode",
+                "NicholasHsiang.vscode-vue3-snippets",
+                "ms-azuretools.vscode-docker",
+                "berublan.vscode-log-viewer"
             ],
             "settings": {
                 "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -34,7 +36,11 @@
                 },
                 "[vue]": {
                     "editor.defaultFormatter": "esbenp.prettier-vscode"
-                }
+                },
+                "logViewer.watch": [{
+                    "title": "Laravel Logs",
+                    "pattern": "storage/logs/laravel.log"
+                }]
             }
         }
     },
