@@ -28,11 +28,6 @@ onMounted(async () => {
 });
 
 /**
- * @const oneTimePassword Code used to verify two factor authentication.
- */
-const oneTimePassword = ref<number | null>(null);
-
-/**
  * @constant confirmPasswordForm Form to visit the password confirmation page in case it's necesary.
  */
 const passwordConfirmForm = useForm({});
@@ -45,9 +40,11 @@ const passwordConfirm = () => {
 /**
  * @constant twoFactorConfirmForm Form to confirm two factor authentication.
  */
-const twoFactorConfirmForm = useForm({});
+const twoFactorConfirmForm = useForm({
+    code: null,
+});
 const twoFactorConfirm = () => {
-    twoFactorConfirmForm.post(route("password.confirm"), {
+    twoFactorConfirmForm.post(route("two-factor.confirm"), {
         preserveScroll: true,
     });
 };
@@ -113,12 +110,22 @@ const twoFactorEnableForm = inject<InertiaForm<{}>>(
                 by the app.
             </p>
             <div v-html="qrSvg"></div>
-            <InputOtp v-model="oneTimePassword" :length="6"/>
+            <InputOtp v-model="twoFactorConfirmForm.code" :length="6" />
             <Button
                 type="submit"
                 :disabled="passwordConfirmForm.processing"
                 label="Confirm"
             />
+            <Transition
+                enter-active-class="transition ease-in-out"
+                enter-from-class="opacity-0"
+                leave-active-class="transition ease-in-out"
+                leave-to-class="opacity-0"
+            >
+                <Message v-if="twoFactorConfirmForm.hasErrors" severity="error">
+                    {{ twoFactorConfirmForm.errors.code }}
+                </Message>
+            </Transition>
         </form>
     </div>
 </template>
